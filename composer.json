@@ -19,7 +19,7 @@
     "repositories": [
       {
         "type": "path",
-        "url": "../laravel-auto-slug",
+        "url": "https://github.com/AdilAzhari/laravel-auto-slug",
         "options": {
           "symlink": true
         }
