@@ -1,1 +1,1 @@
-<div>Skeleton placeholder view.</div>
+<div>LaravelAutoSlug placeholder view.</div>

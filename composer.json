@@ -1,20 +1,29 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "vendor-name/skeleton",
-    "description": "A Laravel package skeleton.",
+    "name": "adilazhari/laravel-auto-slug",
+    "description": "",
     "keywords": [
-        "vendor-name",
         "laravel",
-        "skeleton"
+        "adilazhari",
+        "laravel-auto-slug"
     ],
-    "homepage": "https://github.com/vendor-name/skeleton",
+    "homepage": "https://github.com/adilazhari/laravel-auto-slug",
     "license": "MIT",
     "authors": [
         {
-            "name": "Author Name",
-            "email": "author@example.com",
+            "name": "Adil Azhari",
+            "email": "adelazhry1997@gmail.com",
             "role": "Developer"
         }
+    ],
+    "repositories": [
+      {
+        "type": "path",
+        "url": "../laravel-auto-slug",
+        "options": {
+          "symlink": true
+        }
+      }
     ],
     "require": {
         "php": "^8.3",
@@ -22,10 +31,7 @@
     },
     "require-dev": {
         "larastan/larastan": "^3.9",
-        "laravel/agent-detector": "^2.0",
-        "laravel/chisel": "^0.1",
         "laravel/pint": "^1.29",
-        "laravel/prompts": "^0.3",
         "laravel/pao": "^1.0",
         "orchestra/testbench": "^10.0||^11.0",
         "pestphp/pest": "^4.6",
@@ -35,24 +41,18 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/"
+            "LaravelAutoSlug\\LaravelAutoSlug\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "LaravelAutoSlug\\LaravelAutoSlug\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/",
             "Workbench\\Database\\Factories\\": "workbench/database/factories/",
             "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "@php configure.php"
-        ],
-        "post-update-cmd": [
-            "@php configure.php"
-        ],
         "post-autoload-dump": [
             "@clear",
             "@prepare"
@@ -96,10 +96,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "LaravelAutoSlug\\LaravelAutoSlug\\LaravelAutoSlugServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelAutoSlug": "LaravelAutoSlug\\LaravelAutoSlug\\Facades\\LaravelAutoSlug"
             }
         }
     },
