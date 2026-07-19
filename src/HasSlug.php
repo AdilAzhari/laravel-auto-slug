@@ -2,13 +2,15 @@
 
 namespace LaravelAutoSlug\LaravelAutoSlug;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 trait HasSlug
 {
     protected static function bootHasSlug(): void
     {
-        static::saving(function ($model) {
+        static::saving(function (Model $model) {
+            /** @var self $model */
             $model->generateUniqueSlug();
         });
     }
@@ -27,7 +29,7 @@ trait HasSlug
         $counter = 1;
 
         while ($this->slugExists($slug)) {
-            $slug = $originalSlug . '-' . $counter;
+            $slug = $originalSlug.'-'.$counter;
             $counter++;
         }
 
@@ -36,7 +38,7 @@ trait HasSlug
 
     protected function slugExists(string $slug): bool
     {
-        return static::where($this->slugTargetField(), $slug)
+        return static::query()->where($this->slugTargetField(), $slug)
             ->where($this->getKeyName(), '!=', $this->getKey())
             ->exists();
     }

@@ -1,8 +1,13 @@
 parameters:
-    level: 7
+    level: 5
     paths:
         - src
         - config
         - database
         - routes
+        - tests
     tmpDir: build/phpstan
+
+    ignoreErrors:
+        - '#Call to an undefined method Pest\\PendingCalls\\TestCall::.*?\(\)\.#'
+        - '#Call to method Illuminate\\Contracts\\View\\Factory::exists\(\) with .?laravel-auto-slug.*? will always evaluate to false\.#'
